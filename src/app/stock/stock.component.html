@@ -1,7 +1,15 @@
-<p>stock works!</p>
-
-<p>{{stock.ticker}}</p>
-
-<p>{{stock.id}}</p>
-
-<p>{{stock.price}}</p>
+<mat-card>
+    <mat-card-subtitle>{{stock.ticker}}</mat-card-subtitle>
+    <mat-card-title>{{stock.name}}</mat-card-title>
+    <mat-card-content>
+      <p>This is a description</p>
+    </mat-card-content>
+    <mat-card-content>
+        <p>Price: ${{stock.price}}</p>
+    </mat-card-content>
+    <mat-card-content>
+        <p>Price out of date? Update it here:</p>
+        <input MatInput type="number" [(ngModel)]="newPrice" name="newPrice">
+        <button (click)="updatePrice()">Submit</button>
+    </mat-card-content>
+  </mat-card>

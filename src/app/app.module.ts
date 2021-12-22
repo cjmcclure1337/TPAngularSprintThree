@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { MatTableModule } from "@angular/material/table";
 import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card"
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { StocksComponent } from './stocks/stocks.component';
     HttpClientModule,
     MatTableModule,
     MatInputModule,
+    MatCardModule,
     FormsModule
   ],
   providers: [],

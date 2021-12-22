@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { CollectionService } from '../collection.service';
+import { Router } from '@angular/router';
 import { Stock } from '../stock.model';
 
 @Component({
@@ -7,7 +8,7 @@ import { Stock } from '../stock.model';
   templateUrl: './stocks.component.html',
   styleUrls: ['./stocks.component.css']
 })
-export class StocksComponent implements OnInit {
+export class StocksComponent implements OnInit, OnChanges {
 
   stocks: Stock[] = [
     {id: 1, ticker: "First", price: 1000},
@@ -19,17 +20,25 @@ export class StocksComponent implements OnInit {
   newPrice: number = 0;
   newName: string = "Company Name"
 
+  id: number = 1;
+
   displayedColumns: string[] = ["ticker", "price", "delete"]
 
-  constructor(private collectionService: CollectionService) { }
+  constructor(private collectionService: CollectionService, private router: Router) { }
 
   ngOnInit(): void {
+    this.collectionService.getStocks()
+      .subscribe(payload => this.stocks = payload);
+  }
+  
+  ngOnChanges(): void {
     this.collectionService.getStocks()
       .subscribe(payload => this.stocks = payload);
   }
 
   openStock(id: number) {
     console.log("Openning: ", id);
+    this.id=id;
   }
 
   addStock() {

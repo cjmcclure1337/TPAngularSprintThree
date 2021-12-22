@@ -9,7 +9,7 @@
     <!-- Ticker Column -->
     <ng-container matColumnDef="ticker">
       <th mat-header-cell *matHeaderCellDef> Stock </th>
-      <td mat-cell *matCellDef="let stock"> <a (click)=openStock(stock.id)>{{stock.ticker}} </a></td>
+      <td mat-cell *matCellDef="let stock"> <a (click)=openStock(stock.id)> {{stock.ticker}} </a></td>
     </ng-container>
 
     <!-- Ticker Column -->
@@ -37,3 +37,7 @@
 </form>
 
 <button (click)="addStock()">Add Stock</button>
+
+<br />
+
+<app-stock [id]="id"></app-stock>
