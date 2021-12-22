@@ -1,0 +1,5 @@
+<p>funds works!</p>
+
+<div *ngFor="let fund of funds">
+    <a [routerLink]="['/funds', fund.id]">{{fund.title}}</a>
+</div>
