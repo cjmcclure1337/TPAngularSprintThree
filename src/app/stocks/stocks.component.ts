@@ -61,6 +61,11 @@ export class StocksComponent implements OnInit, OnChanges {
 
   deleteStock(id: number) {
     console.log("Deleting: ", id);
+    this.collectionService.deleteStock(id)
+      .subscribe(payload => {
+        this.collectionService.getStocks()
+          .subscribe(payload => this.stocks = payload);
+      })
   }
 
 }

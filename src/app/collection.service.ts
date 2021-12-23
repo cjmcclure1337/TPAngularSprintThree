@@ -69,5 +69,8 @@ export class CollectionService {
   updateStockPrice(stock: Stock, updatedPrice: number): Observable<any> {
     return this.http.patch<any>(this.collectionURL + this.stocksExt + stock.id + "/price", {price: updatedPrice});
   }
+  deleteStock(id: number) {
+    return this.http.delete<any>(this.collectionURL + this.stocksExt + id);
+  }
 
 }
