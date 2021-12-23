@@ -40,7 +40,7 @@ export class StockComponent implements OnInit, OnChanges {
   }
 
   updatePrice(): void {
-    this.collectionService.updateStockPrice(this.stock).subscribe(payload => {
+    this.collectionService.updateStockPrice(this.stock, this.newPrice).subscribe(payload => {
       this.collectionService.getStock(this.id).subscribe(payload => {
         this.stock=payload;
         console.log("Payload: ", payload)

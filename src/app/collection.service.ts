@@ -63,7 +63,7 @@ export class CollectionService {
   postStock(stock: Stock): Observable<any> {
     return this.http.post<any>(this.collectionURL + this.stocksExt, stock);
   }
-  updateStockPrice(stock: Stock): Observable<any> {
-    return this.http.patch<any>(this.collectionURL + this.stocksExt + stock.id + "/price", stock);
+  updateStockPrice(stock: Stock, updatedPrice: number): Observable<any> {
+    return this.http.patch<any>(this.collectionURL + this.stocksExt + stock.id + "/price", {price: updatedPrice});
   }
 }

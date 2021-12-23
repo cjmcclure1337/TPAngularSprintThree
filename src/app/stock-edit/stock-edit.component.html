@@ -1,1 +1,7 @@
-<p>stock-edit works!</p>
+<form>
+    <input MatInput type="text" [(ngModel)]="newTicker" name="newTicker">
+    <input MatInput type="number" [(ngModel)]="newPrice" name="newPrice">
+    <input MatInput type="text" [(ngModel)]="newName" name="newName">
+</form>
+
+<button (click)="updateStock()">Update Stock</button>
