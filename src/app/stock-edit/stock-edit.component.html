@@ -1,7 +1,18 @@
-<form>
-    <input MatInput type="text" [(ngModel)]="newTicker" name="newTicker">
-    <input MatInput type="number" [(ngModel)]="newPrice" name="newPrice">
-    <input MatInput type="text" [(ngModel)]="newName" name="newName">
-</form>
+<mat-card>
+    <mat-card-subtitle>{{stock.ticker}}</mat-card-subtitle>
+    <mat-card-title>{{stock.name}}</mat-card-title>
+    <mat-card-content>
+        <p>Price: ${{stock.price}}</p>
+    </mat-card-content>
+    <mat-card-content>
+        <p>Info out of date? Update it below:</p>
+        <form>
+            Ticker: <br/><input MatInput type="text" [(ngModel)]="newTicker" name="newTicker"> <br/>
+            Name: <br/><input MatInput type="text" [(ngModel)]="newName" name="newName"> <br/>
+            Price: <br/><input MatInput type="number" [(ngModel)]="newPrice" name="newPrice"> 
+        </form>
+    </mat-card-content>
+</mat-card>
 
 <button (click)="updateStock()">Update Stock</button>
+<button routerLink="/stocks">Return</button>

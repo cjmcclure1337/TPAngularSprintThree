@@ -1,9 +1,7 @@
-<mat-card>
+<div *ngIf="id!==0">
+  <mat-card>
     <mat-card-subtitle>{{stock.ticker}}</mat-card-subtitle>
     <mat-card-title>{{stock.name}}</mat-card-title>
-    <mat-card-content>
-      <p>This is a description</p>
-    </mat-card-content>
     <mat-card-content>
         <p>Price: ${{stock.price}}</p>
     </mat-card-content>
@@ -13,3 +11,4 @@
         <button (click)="updatePrice()">Submit</button>
     </mat-card-content>
   </mat-card>
+</div>

@@ -1,5 +1,6 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 import { CollectionService } from '../collection.service';
 import { Stock } from '../stock.model';
 import { Input } from '@angular/core';
@@ -16,18 +17,11 @@ export class StockComponent implements OnInit, OnChanges {
   newPrice: number = 0;
 
   @Input() id: number = 0;
+  @Output() priceChange = new EventEmitter<boolean>();
 
   constructor(private route: ActivatedRoute, private collectionService: CollectionService) { }
 
   ngOnInit(): void {
-    // this.route.params.subscribe(params=>{
-    //   this.id = +params['id'];
-    //   this.collectionService.getStock(this.id).subscribe(payload=>{
-    //     console.log(payload);
-    //     this.stock = payload;
-    //   })
-    // })
-
     this.collectionService.getStock(this.id).subscribe(payload => {
       this.stock=payload;
     })
@@ -44,6 +38,7 @@ export class StockComponent implements OnInit, OnChanges {
       this.collectionService.getStock(this.id).subscribe(payload => {
         this.stock=payload;
         console.log("Payload: ", payload)
+        this.priceChange.emit(true);
       })
     })
   }

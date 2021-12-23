@@ -29,7 +29,11 @@ export class StockEditComponent implements OnInit {
 
   updateStock() {
     console.log("Updating: ", this.stock.ticker);
-
+    this.collectionService.updateStock({id: this.stock.id, name: this.newName, ticker: this.newTicker, price: this.newPrice}).subscribe(payload => {
+      this.collectionService.getStock(this.stock.id || 0).subscribe(payload=>{
+        this.stock=payload;
+      })
+    })
   }
 
 }

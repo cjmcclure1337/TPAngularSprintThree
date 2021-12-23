@@ -20,9 +20,9 @@ export class StocksComponent implements OnInit, OnChanges {
   newPrice: number = 0;
   newName: string = "Company Name"
 
-  id: number = 1;
+  id: number = 0;
 
-  displayedColumns: string[] = ["ticker", "price", "delete"]
+  displayedColumns: string[] = ["ticker", "edit", "delete"]
 
   constructor(private collectionService: CollectionService, private router: Router) { }
 
@@ -36,9 +36,18 @@ export class StocksComponent implements OnInit, OnChanges {
       .subscribe(payload => this.stocks = payload);
   }
 
+  updateStocks(): void {
+    this.collectionService.getStocks()
+      .subscribe(payload => this.stocks = payload);
+  }
+
   openStock(id: number) {
     console.log("Openning: ", id);
     this.id=id;
+  }
+
+  editStock(id: number) {
+    this.router.navigateByUrl("/stocks/" + id + "/edit")
   }
 
   addStock() {
