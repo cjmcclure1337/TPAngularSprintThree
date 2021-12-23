@@ -1,3 +1,9 @@
+Currently set up to interact with a local API, but can be demo'd with default values in the app.
+
+Created to demonstrate basic CRUD operations with an API and routing tools in Angular.
+
+# Angular Notes:
+
 # FundsManager
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.

@@ -13,6 +13,7 @@ import { FundComponent } from './fund/fund.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StockComponent } from './stock/stock.component';
 import { StocksComponent } from './stocks/stocks.component';
+import { StockEditComponent } from './stock-edit/stock-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StocksComponent } from './stocks/stocks.component';
     FundsComponent,
     FundComponent,
     StockComponent,
-    StocksComponent
+    StocksComponent,
+    StockEditComponent
   ],
   imports: [
     BrowserModule,
