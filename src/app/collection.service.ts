@@ -63,13 +63,13 @@ export class CollectionService {
   postStock(stock: Stock): Observable<any> {
     return this.http.post<any>(this.collectionURL + this.stocksExt, stock);
   }
-  updateStock(stock: Stock) {
+  updateStock(stock: Stock): Observable<any> {
     return this.http.put<any>(this.collectionURL + this.stocksExt + stock.id, stock)
   }
   updateStockPrice(stock: Stock, updatedPrice: number): Observable<any> {
     return this.http.patch<any>(this.collectionURL + this.stocksExt + stock.id + "/price", {price: updatedPrice});
   }
-  deleteStock(id: number) {
+  deleteStock(id: number): Observable<any> {
     return this.http.delete<any>(this.collectionURL + this.stocksExt + id);
   }
 

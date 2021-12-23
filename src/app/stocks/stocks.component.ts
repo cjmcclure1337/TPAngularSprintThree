@@ -10,11 +10,7 @@ import { Stock } from '../stock.model';
 })
 export class StocksComponent implements OnInit, OnChanges {
 
-  stocks: Stock[] = [
-    {id: 1, ticker: "First", price: 1000},
-    {id: 2, ticker: "Second", price: 2000},
-    {id: 3, ticker: "Third", price: 3000}
-  ];
+  stocks: Stock[] = [];
 
   newTicker: string = "Ticker";
   newPrice: number = 0;
